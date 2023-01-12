@@ -1,0 +1,41 @@
+header{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: white;
+}
+.liHeader{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:25px;
+ 
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: rgba(28, 65, 134, 0.932);
+}
+.ulHeader{
+  display: flex;
+  flex-direction: row;
+  padding-left: 5%;
+  justify-content: center;
+  align-items: center;
+}
+.boxHeader{
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5%;
+  height: 150px;
+  width: 190px;
+  margin-left: 6px;
+  
+}
+.paddh3{
+  padding:25px
+}
+.paddh33{
+  margin:25px
+}
