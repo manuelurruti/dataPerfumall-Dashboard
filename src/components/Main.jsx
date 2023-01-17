@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import header from "./main.css"
 import Logo from "../img/Logo.png"
 import axios from "axios";
+import Card from "./Card"
+
 export const getAllProducts = async () =>
   await axios.get("http://localhost:4000/perfumall/api/v1/products")
 
@@ -17,6 +19,7 @@ export const getAllUsers = async () =>
 
 export const getlastProduct = async () =>
   await axios.get("http://localhost:4000/perfumall/api/v1/products/lastProduct")
+
 
 function Main() {
   const [products, setProducts] = useState([])
@@ -39,6 +42,9 @@ function Main() {
     }
     loadGet()
   }, [])
+
+
+
 
 
 
@@ -95,10 +101,9 @@ function Main() {
             width={350}
             height={200} />
           <ul className="ultDatos">
-            <li>Usuario Nro:</li>
-            <li>Nombre:</li>
-            <li>Apellido:</li>
-            <li>Localidad:</li>
+            <li>Usuario Nro: </li>
+            <Card users={users} />
+
           </ul>
         </div>
 
