@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import header from "./main.css";
 import Logo from "../img/Logo.png";
-import Card from "./Card";
+import CardUser from "./CardUser";
+import CardProduct from "./CardProduct";
 import {
     getAllProducts,
     getAllBrands,
@@ -33,30 +34,38 @@ function Main() {
         }
         loadGet();
     }, []);
+    console.log(products);
 
     return (
         <div>
             <main id="main">
                 <ul className="ulFlex">
-                    <li className="liMain">
-                        Cantidad de usuarios: {users.length}
-                    </li>
-                    <li className="liMain">
-                        Cantidad de productos: {products.length}
-                    </li>
-                    <li className="liMain">
-                        Cantidad de marcas: {marcas.length}{" "}
-                    </li>
+                    <div className="container-li">
+                        <li className="liMain">
+                            Cantidad de usuarios <h2>{users.length}</h2>
+                        </li>
+                    </div>
+                    <div className="container-li">
+                        <li className="liMain">
+                            Cantidad de productos: <h2>{products.length}</h2>
+                        </li>
+                    </div>
+                    <div className="container-li">
+                        <li className="liMain">
+                            Cantidad de marcas: <h2>{marcas.length} </h2>
+                        </li>
+                    </div>
                 </ul>
 
                 <div className="main">
                     <ul className="ulUlt">
                         <li className="liUlt">
-                            Ultimo usuario registrado: {lastUser.nombre}{" "}
-                            {lastUser.apellido}
+                            Ultimo usuario registrado:
+                            <h2>{lastUser.nombre + " " + lastUser.apellido}</h2>
                         </li>
                         <li className="liUlt">
-                            Ultimo producto registrado: {lastProduct.modelo}
+                            Ultimo producto registrado:
+                            <h2>{lastProduct.modelo}</h2>
                         </li>
                         <li className="liUlt">
                             Cantidad de producto por marca:
@@ -64,24 +73,14 @@ function Main() {
                     </ul>
 
                     <div className="derecha">
-                        <img
-                            className="img "
-                            alt="asdas"
-                            src={Logo}
-                            width={350}
-                            height={200}
-                        />
                         <ul className="ultDatos">
-                            <li>Usuario Nro: </li>
-                            
-                            <Card users={users} />
+                            <CardUser users={users} />
+                            <CardProduct products={products} />
                         </ul>
                     </div>
                 </div>
 
                 <ul className="lastUl">
-                    <li className="lastLi">Producto mas visto:</li>
-                    <li className="lastLi">Producto menos visto:</li>
                     <li className="lastLi">Producto mas comprado:</li>
                     <li className="lastLi">Producto menos comprado:</li>
                 </ul>

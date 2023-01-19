@@ -1,71 +1,96 @@
-#main{
-  color: rgba(28, 65, 134, 0.932);
-  font-size: 19;
+#main {
+    color: rgba(28, 65, 134, 0.932);
+    font-size: 19;
 }
-.main{
-  display: flex;
-  flex-direction: row;
- 
+.main {
+    display: flex;
+    flex-direction: row;
 }
-.img{
-  margin-top: 70px;
+.img {
+    margin-top: 70px;
 }
-.ulFlex{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  margin:15px;
-  height: 60px;
-  width: 100%;
-  list-style:none;}
+.ulFlex {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 30px;
+    height: 70px;
+    width: 100%;
+    list-style: none;
+}
 
-  .liMain{
-    border: 2px solid  rgba(28, 65, 134, 0.932);
+.liMain {
+    border: 2px solid rgba(28, 65, 134, 0.932);
     border-radius: 5px;
     padding: 9px;
-    width: 300px
-  }
-  .ulUlt{
+    width: 300px;
+}
+.ulUlt {
     margin-left: 15px;
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-      width: 20%;
-     height: 400px;
-     
-  }
-  .liUlt{
-    border: 2px solid  rgba(28, 65, 134, 0.932);
+    width: 20%;
+    height: 400px;
+}
+.liUlt {
+    border: 2px solid rgba(28, 65, 134, 0.932);
     border-radius: 5px;
-    padding:30px;
-    width: 300px
-  }
-  .derecha{
+    padding: 15px;
+    width: 300px;
+}
+.derecha {
     margin-left: 55px;
-    margin-top:15px;
-    display:flex;
+    margin-top: 15px;
+    display: flex;
     flex-direction: row;
-    
-  }
-  .ultDatos{
+}
+.ultDatos {
     list-style: none;
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    flex-direction: column;
-  }
-  .lastUl{
+    flex-direction: row;
+}
+.lastUl {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
-  }
-  .lastLi{
-    border:2px solid rgba(28, 65, 134, 0.932);
+}
+.lastLi {
+    border: 2px solid rgba(28, 65, 134, 0.932);
     border-radius: 5px;
-    padding:15px;
+    padding: 15px;
     height: 50px;
     width: 300px;
+}
+.container-card {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    max-width: 220px;
+    width: 220px;
+    padding: 10px;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 6px 2px 2px 2px
+}
+.select {
+    width: 60px;
+    border-radius: 8px;
+    height: 25px;
+}
 
-  }
+.container-select {
+    display: flex;
+    gap: 15px;
+
+    align-items: center;
+}
+
+.select.info {
+
+}
