@@ -16,3 +16,5 @@ export const getLastProduct = async () =>
     await axios.get(
         "http://localhost:4000/perfumall/api/v1/products/lastProduct"
     );
+export const getVentas = async () =>
+    await axios.get("http://localhost:4000/perfumall/api/v1/products/ventas");

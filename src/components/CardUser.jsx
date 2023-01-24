@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const CardUser = ({ users }) => {
-    const [user, setUser] = useState(" ");
+    const [user, setUser] = useState({});
 
     const handleFindById = (id) => {
         const userFound = users.find((e) => {
@@ -33,7 +33,9 @@ const CardUser = ({ users }) => {
             <div className="select-info">
                 <h4>Nombre: {user.nombre}</h4>
                 <h4>Apellido: {user.apellido}</h4>
+                <h4>Mail: {user.email}</h4>
                 <h4>Localidad: {user.provincia}</h4>
+                <h4>Admin: {user.admin ? "si" : "no"}</h4>
             </div>
         </div>
     );

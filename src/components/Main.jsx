@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import header from "./main.css";
-import Logo from "../img/Logo.png";
 import CardUser from "./CardUser";
+import "./main.css";
 import CardProduct from "./CardProduct";
 import {
     getAllProducts,
@@ -9,14 +8,18 @@ import {
     getAllUsers,
     getLastUser,
     getLastProduct,
+    getVentas,
 } from "../data/apiPerfumall";
 
 function Main() {
     const [products, setProducts] = useState([]);
     const [users, setUsers] = useState([]);
     const [marcas, setMarcas] = useState([]);
-    const [lastUser, setLastUser] = useState([]);
+    const [lastUser, setLastUser] = useState("");
     const [lastProduct, setLastProduct] = useState([]);
+    const [sells, setSells] = useState([]);
+    const [productMostBought, setProductMostBought] = useState({ asd: "asd" });
+    const [productLessBought, setProductLessBought] = useState({ asd: "asd" });
 
     useEffect(() => {
         async function loadGet() {
@@ -25,16 +28,54 @@ function Main() {
             const responseAllBrands = await getAllBrands();
             const responseLastUser = await getLastUser();
             const responseLastProduct = await getLastProduct();
+            const responseSells = await getVentas();
 
             setProducts(responseAllProducts.data);
             setUsers(responseAllUsers.data);
             setMarcas(responseAllBrands.data);
             setLastUser(responseLastUser.data);
             setLastProduct(responseLastProduct.data);
+            setSells(responseSells.data.ventas);
         }
+        console.log(productMostBought);
+
         loadGet();
     }, []);
-    console.log(products);
+
+    useEffect(() => {
+        if (products.length > 0) {
+            let productsToFind = {};
+
+            sells.forEach(({ producto_id, cantidad }) => {
+                if (!productsToFind[producto_id]) {
+                    productsToFind[producto_id] = {
+                        quantity: 0,
+                    };
+                }
+                productsToFind[producto_id].quantity += cantidad;
+            });
+
+            const productsSortedMax = Object.entries(productsToFind)
+                .sort((a, b) => b[1].quantity - a[1].quantity)
+                .find(([product_id, { quantity }]) => quantity);
+
+            setProductMostBought(
+                products.find(({ id }) =>  productsSortedMax[0])
+            );
+
+            const productsSortedMin = Object.entries(productsToFind)
+                .sort((a, b) => a[1].quantity - b[1].quantity)
+                .find(([product_id, { quantity }]) => quantity);
+
+            setProductLessBought(
+                products.find(({ id }) => id == productsSortedMin[0])
+            );
+            console.log(productsSortedMin[0]);
+            console.log(products.find(({ id }) => id === 4));
+
+            console.log(productMostBought);
+        }
+    }, [sells, products]);
 
     return (
         <div>
@@ -81,8 +122,14 @@ function Main() {
                 </div>
 
                 <ul className="lastUl">
-                    <li className="lastLi">Producto mas comprado:</li>
-                    <li className="lastLi">Producto menos comprado:</li>
+                    <li className="lastLi">
+                        Producto mas comprado:
+                        <strong> {productMostBought.modelo}</strong>
+                    </li>
+                    <li className="lastLi">
+                        Producto menos comprado:
+                        <strong> {productLessBought.modelo}</strong>
+                    </li>
                 </ul>
             </main>
         </div>
