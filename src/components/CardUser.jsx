@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CardUser = ({ users }) => {
     const [user, setUser] = useState({});
@@ -7,10 +7,15 @@ const CardUser = ({ users }) => {
         const userFound = users.find((e) => {
             return id === e.id;
         });
-        console.log(users);
-        console.log(userFound);
+
         setUser(userFound);
     };
+
+    useEffect(() => {
+        if (users.length > 0) {
+             setUser(users[0]);
+        }
+    }, [users]);
 
     return (
         <div className="container-card">

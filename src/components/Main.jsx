@@ -20,6 +20,7 @@ function Main() {
     const [sells, setSells] = useState([]);
     const [productMostBought, setProductMostBought] = useState({ asd: "asd" });
     const [productLessBought, setProductLessBought] = useState({ asd: "asd" });
+    const [quantityPerBrand, setQuantityPerBrand] = useState([]);
 
     useEffect(() => {
         async function loadGet() {
@@ -60,7 +61,7 @@ function Main() {
                 .find(([product_id, { quantity }]) => quantity);
 
             setProductMostBought(
-                products.find(({ id }) =>  productsSortedMax[0])
+                products.find(({ id }) => productsSortedMax[0])
             );
 
             const productsSortedMin = Object.entries(productsToFind)
@@ -76,6 +77,30 @@ function Main() {
             console.log(productMostBought);
         }
     }, [sells, products]);
+
+    useEffect(() => {
+        if (products.length > 0) {
+            const productsQuantity = products.reduce(
+                (acc, { marca_id, id }) => {
+                    if (!acc[marca_id]) {
+                        acc[marca_id] = {
+                            nombre: marcas.find(({ id }) => id == marca_id)
+                                .nombre,
+                            quantity: 1,
+                        };
+                    } else {
+                        acc[marca_id].quantity += 1;
+                    }
+
+                    return acc;
+                },
+                {}
+            );
+
+            const arrayProductsQuantity = Object.values(productsQuantity);
+            setQuantityPerBrand(arrayProductsQuantity);
+        }
+    }, []);
 
     return (
         <div>
@@ -109,7 +134,14 @@ function Main() {
                             <h2>{lastProduct.modelo}</h2>
                         </li>
                         <li className="liUlt">
-                            Cantidad de producto por marca:
+                            Cantidad de productos por marca:
+                            {quantityPerBrand.map((e) => {
+                                return (
+                                    <h4>
+                                        {e.nombre}: {e.quantity}
+                                    </h4>
+                                );
+                            })}
                         </li>
                     </ul>
 
