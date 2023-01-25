@@ -100,7 +100,7 @@ function Main() {
             const arrayProductsQuantity = Object.values(productsQuantity);
             setQuantityPerBrand(arrayProductsQuantity);
         }
-    }, []);
+    }, [products]);
 
     return (
         <div>
