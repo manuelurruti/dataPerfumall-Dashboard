@@ -26,16 +26,17 @@ const CardProduct = ({ products }) => {
                         );
                     })}
                 </select>
-            </div>
 
-            <div className="select-info">
-                <h4>Modelo: {product.modelo}</h4>
-                <h4>Marca: {product.marca.nombre}</h4>
-                <h4>Precio: $ {product.precio}</h4>
-                <h4>Descuento: {product.descuento} %</h4>
-                <h4>Fecha: {product.fecha_creacion} </h4>
-                <h4>Stock: {product.stock} </h4>
-                <h4>{product.descripcion}</h4>
+
+                <div className="select-info">
+                    <h4>Modelo: {product.modelo}</h4>
+                    <h4>Marca: {product.marca.nombre}</h4>
+                    <h4>Precio: $ {product.precio}</h4>
+                    <h4>Descuento: {product.descuento} %</h4>
+                    <h4>Fecha: {product.fecha_creacion} </h4>
+                    <h4>Stock: {product.stock} </h4>
+                    <h4>{product.descripcion}</h4>
+                </div>
             </div>
         </div>
     );

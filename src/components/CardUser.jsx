@@ -13,7 +13,7 @@ const CardUser = ({ users }) => {
 
     useEffect(() => {
         if (users.length > 0) {
-             setUser(users[0]);
+            setUser(users[0]);
         }
     }, [users]);
 
@@ -33,14 +33,15 @@ const CardUser = ({ users }) => {
                         );
                     })}
                 </select>
-            </div>
 
-            <div className="select-info">
-                <h4>Nombre: {user.nombre}</h4>
-                <h4>Apellido: {user.apellido}</h4>
-                <h4>Mail: {user.email}</h4>
-                <h4>Localidad: {user.provincia}</h4>
-                <h4>Admin: {user.admin ? "si" : "no"}</h4>
+
+                <div className="select-info">
+                    <h4>Nombre: {user.nombre}</h4>
+                    <h4>Apellido: {user.apellido}</h4>
+                    <h4>Mail: {user.email}</h4>
+                    <h4>Localidad: {user.provincia}</h4>
+                    <h4>Admin: {user.admin ? "si" : "no"}</h4>
+                </div>
             </div>
         </div>
     );

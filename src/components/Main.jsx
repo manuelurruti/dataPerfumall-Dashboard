@@ -103,7 +103,7 @@ function Main() {
     }, [products]);
 
     return (
-        <div>
+        <div id="supremeDiv">
             <main id="main">
                 <ul className="ulFlex">
                     <div className="container-li">

@@ -1,14 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    color:whitesmoke
 }
 
 #main {
+    background-color:  #05101f;
     color: rgba(28, 65, 134, 0.932);
     font-size: 19;
 }
 .main {
-    margin-bottom: 100px;
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,10 +23,11 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    margin: 30px;
+   
     height: 70px;
     width: 100%;
     list-style: none;
+    padding-top: 15px;
 }
 
 .liMain {
@@ -32,23 +35,75 @@
     border-radius: 5px;
     padding: 9px;
     width: 300px;
+
+    
 }
-.ulUlt {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 20%;
-    height: 400px;
+.ulUlt { 
+
+  margin:35px;
+  width: 350px;
+  height: 654px;
+  background: #07182E;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+ 
+  overflow: hidden;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  flex-direction: column;
 }
 .liUlt {
-    border: 2px solid rgba(28, 65, 134, 0.932);
-    border-radius: 5px;
-    padding: 10px;
-    min-height: 100px;
+     z-index: 1;
+  color: white;
+  font-size:18px;
 
-    width: 300px;
+  
+}
+.ulUlt::before {
+   
+  content: '';
+  position: absolute;
+  width: 100px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 183, 255)), to(rgb(255, 48, 255)));
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  height: 130%;
+  -webkit-animation: rotBGimg 3s linear infinite;
+          animation: rotBGimg 3s linear infinite;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+@-webkit-keyframes rotBGimg {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotBGimg {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.ulUlt::after {
+  content: '';
+  position: absolute;
+  background: #07182E;
+  ;
+  inset: 5px;
+  border-radius: 15px;
 }
 .derecha {
     margin-left: 55px;
@@ -67,36 +122,55 @@
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
+    padding-bottom: 15px;
 }
 .lastLi {
-    border: 2px solid rgba(28, 65, 134, 0.932);
+  
     border-radius: 5px;
     padding: 15px;
     height: 50px;
     /* display: flex; */
     /* flex-direction: row; */
     /*  align-items: center; */
-
+border: 2px solid rgba(28, 65, 134, 0.932);
     width: 300px;
+    
+}
+.container-card h4{
+    margin-top: 15px;
 }
 .container-card {
     display: flex;
     flex-direction: column;
 
     margin: 30px;
-    max-width: 220px;
+    max-width: 270px;
     min-height: 410px;
-    width: 220px;
-    padding: 10px;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 6px 2px 2px 2px;
+    padding:5px;
+
+   align-items: center;
+
+ background: #081629;
+ border-radius: 17px;
+ width: 350px;
+ height: 100%;
+color: whitesmoke;
+
+
+transition: 0.4s;
+
 }
+.container-card:hover{
+    box-shadow: #AF40FF 0px 14px 45px;
+}
+
+
+
 .select {
     width: 60px;
     border-radius: 8px;
     height: 25px;
+    background-color: #07182E;
 }
 
 .container-select {
@@ -104,10 +178,21 @@
     gap: 15px;
     margin-bottom: 15px;
     align-items: center;
+    flex-direction: column;
+     background: rgb(5, 6, 45);
+     background-color: #07182E;
+ border-radius: 17px;
+ width: 100%;
+ height: 100%;
+
+    
 }
 
 .select-info {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+.supremeDiv{
+    height: 90vh;
 }

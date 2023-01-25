@@ -2,30 +2,18 @@ import React from "react";
 import header from "./header.css"
 import Logo from "../img/Logo.png"
 function Header() {
-  return ( <div>
+  return (<div>
     <header className="header">
-     
-        <img   src={Logo} alt="asd"
-        width={400}
-                    height={150}/>
-                   
-          <ul className="ulHeader">
-            <div className="boxHeader">
-            <li className="liHeader">Ganancias</li>
-               <h3 className="paddh3">$</h3>
-               </div>
-               <div className="boxHeader">
-            <li className="liHeader">Ventas</li>
-               <h3 className="paddh3">$</h3>
-               </div>
-               <div className="boxHeader">
-            <li className="liHeader">Año y mes</li>
-               <input type="date" className="paddh33"></input>
-               </div>
-          </ul>
-     
+      <nav className="navbar">
+        <h1>PERFUMALL</h1>
+        <ul className="ulHeader">
+          <li className="liHeader"><a href="https://github.com/ArianaBelgrado/perfumall">Repositorio</a></li>
+          <li className="liHeader"><a href="https://perfumall-mv7u.onrender.com/">Proyecto</a></li>
+
+        </ul>
+      </nav>
     </header>
-  </div> );
+  </div>);
 }
 
 export default Header;
