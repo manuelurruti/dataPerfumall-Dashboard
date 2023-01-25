@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 
 const CardProduct = ({ products }) => {
     const [product, setProduct] = useState({ marca: { nombre: "" } });
