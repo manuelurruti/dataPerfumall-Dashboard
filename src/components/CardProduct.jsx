@@ -35,7 +35,7 @@ const CardProduct = ({ products }) => {
                     <h4>Descuento: {product.descuento} %</h4>
                     <h4>Fecha: {product.fecha_creacion} </h4>
                     <h4>Stock: {product.stock} </h4>
-                    <h4>{product.descripcion}</h4>
+                    <h4 id="descripcion">{product.descripcion}</h4>
                 </div>
             </div>
         </div>
